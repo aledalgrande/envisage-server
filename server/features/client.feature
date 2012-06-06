@@ -7,6 +7,7 @@ Scenario: create a new result
   Given I have a cucumber result with:
     | name   | description  | value |
     | test01 | blablablabla | pass  |
+  And there isn't a record for that cucumber result
   When I submit it
   Then it should be available in the database
 

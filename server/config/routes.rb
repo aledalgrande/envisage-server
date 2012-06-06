@@ -1,7 +1,6 @@
 EnvisageServer::Application.routes.draw do
-  get "results/new"
-
-  get "results/index"
+  
+  resources :results
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

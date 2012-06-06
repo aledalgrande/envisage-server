@@ -2,7 +2,19 @@ class ResultsController < ApplicationController
 
   def create
     respond_to do |format|
-      format.json {}
+      format.json {
+        result = Result.find_by_name(params[:result][:name])
+        if result
+          result.update_attributes(params[:result])
+          head 202
+        else
+          if Result.create(params[:result])
+            head :created
+          else
+            head :error
+          end
+        end
+      }
     end
   end
 
