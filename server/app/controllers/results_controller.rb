@@ -6,7 +6,7 @@ class ResultsController < ApplicationController
         result = Result.find_by_name(params[:result][:name])
         if result
           result.update_attributes(params[:result])
-          head 202
+          head :accepted
         else
           if Result.create(params[:result])
             head :created
